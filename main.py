@@ -12,7 +12,7 @@ import hashlib
 from time import sleep
 from datetime import datetime
 
-print("Initializing")
+print("Connect to Server KeyAuth.win")
 def getchecksum():
     path = os.path.basename(__file__)
     if not os.path.exists(path):
