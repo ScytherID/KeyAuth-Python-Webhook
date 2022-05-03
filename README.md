@@ -7,5 +7,4 @@ Edit in main.py in line 59 & And add your webhook link
 # KeyAuth Setup tutorial!
 https://keyauth.win/
 
-#Enjoy my project
-Thanks to KeyAuth >\<
+# Enjoy My Project & Thanks to KeyAuth
