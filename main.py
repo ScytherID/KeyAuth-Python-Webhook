@@ -35,10 +35,10 @@ print(f"Login Status : {keyauthapp.check()}")
 sleep(1.5) 
 print(f"Checking Hwid Ban? : {keyauthapp.checkblacklist()}") 
 if keyauthapp.checkblacklist() == True:
-	print("You got hwid ban:( ")
-	print("So sad go use hwid spoofer xd")
-	contentss = "Warning Ban user try to login Tools!!" 
-	webhooks = DiscordWebhook(url="Your Webhook", username="Name Webhook", content=contentss)
+	print("Sorry you got ban Hwid")
+	print("Please contact admin Nama#0001")
+	warningid = "Warning,  Users got Hwid ban, Try to use (Nama) Tools" 
+	webhooks = DiscordWebhook(url="Your Webhook", username="Name Webhook", content=warningid)
 	webhooks.execute()
 	sleep(1.5)
 	exit(0)
@@ -51,12 +51,12 @@ if loginid=="y":
 	password = input('Password: ')
 	keyauthapp.login(user,password)
 elif loginid=="n":
-	print("Cencel Login!") 
+	print("Cancel Login!") 
 	sys.exit()
 
-usernameid = "Username : " + keyauthapp.user_data.username + "\n" + "Ip : " + keyauthapp.user_data.ip + "\n" + "Hwid : " + keyauthapp.user_data.hwid 
+informationid = "Username : " + keyauthapp.user_data.username + "\n" + "Ip : " + keyauthapp.user_data.ip + "\n" + "Hwid : " + keyauthapp.user_data.hwid 
 print(f"Login Status: {keyauthapp.check()}")
-webhook = DiscordWebhook(url="Your Webhook", username="Name Webhook", content=usernameid)
+webhook = DiscordWebhook(url="Your Webhook", username="Name Webhook", content=informationid)
 response = webhook.execute()
 print("Exit Tools...")
 sleep(10)
