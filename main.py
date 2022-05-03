@@ -30,7 +30,7 @@ keyauthapp = api(
 	version = "1.0",
 	hash_to_check = getchecksum()
 )
-sleep(1.5) # rate limit
+sleep(1.5) 
 print(f"Login Status : {keyauthapp.check()}")
 sleep(1.5) 
 print(f"Checking Hwid Ban? : {keyauthapp.checkblacklist()}") 
@@ -38,19 +38,19 @@ if keyauthapp.checkblacklist() == True:
 	print("You got hwid ban:( ")
 	print("So sad go use hwid spoofer xd")
 	contentss = "Warning Ban user try to login Tools!!" 
-	webhooks = DiscordWebhook(url="https://discordapp.com/api/webhooks/970699932946268281/zu3_K7ns0r_ZUIgn71HToofAEjCxgr5oUFscBpC4iC0VkcLAud4Cp_TUFUB1N5PMrs0h", username="Key info", content=contentss)
+	webhooks = DiscordWebhook(url="Your Webhook", username="Name Webhook", content=contentss)
 	webhooks.execute()
 	sleep(1.5)
 	exit(0)
 
 sleep(1.5)
 print ("Do you want login (y/n) ?")
-ans=input("Choice please: ") 
-if ans=="y": 
+loginid=input("Choice please: ") 
+if loginid=="y": 
 	user = input('Username: ')
 	password = input('Password: ')
 	keyauthapp.login(user,password)
-elif ans=="n":
+elif loginid=="n":
 	print("Cencel Login!") 
 	sys.exit()
 
