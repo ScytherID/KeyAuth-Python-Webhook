@@ -1,7 +1,10 @@
 from multiprocessing.sharedctypes import Value
+from nturl2path import url2pathname
+from tkinter import Y
 from turtle import color
 from unicodedata import name
 from urllib import response
+import discord_webhook
 from keyauth import api
 from discord_webhook import DiscordWebhook , DiscordEmbed
 import os
@@ -11,6 +14,7 @@ import platform
 import hashlib
 from time import sleep
 from datetime import datetime
+
 
 print("Connect to Server KeyAuth.win")
 def getchecksum():
@@ -30,34 +34,36 @@ keyauthapp = api(
 	version = "1.0",
 	hash_to_check = getchecksum()
 )
-sleep(1.5) 
-print(f"Login Status : {keyauthapp.check()}")
-sleep(1.5) 
-print(f"Checking Hwid Ban? : {keyauthapp.checkblacklist()}") 
-if keyauthapp.checkblacklist() == True:
-	print("Sorry you got ban Hwid")
-	print("Please contact admin Nama#0001")
-	warningid = "Warning,  Users got Hwid ban, Try to use (Nama) Tools" 
-	webhooks = DiscordWebhook(url="Your Webhook", username="Name Webhook", content=warningid)
-	webhooks.execute()
-	sleep(1.5)
-	exit(0)
-
+os.system("cls")
 sleep(1.5)
-print ("Do you want login (y/n) ?")
-loginid=input("Choice please: ") 
-if loginid=="y": 
-	user = input('Username: ')
-	password = input('Password: ')
-	keyauthapp.login(user,password)
-elif loginid=="n":
-	print("Cancel Login!") 
-	sys.exit()
-
-informationid = "Username : " + keyauthapp.user_data.username + "\n" + "Ip : " + keyauthapp.user_data.ip + "\n" + "Hwid : " + keyauthapp.user_data.hwid 
-print(f"Login Status: {keyauthapp.check()}")
-webhook = DiscordWebhook(url="Your Webhook", username="Name Webhook", content=informationid)
-response = webhook.execute()
-print("Exit Tools...")
-sleep(10)
-exit(0)
+print("Success Connect To Server.")
+sleep(1.5) 
+keyauthapp.checkblacklist() 
+if keyauthapp.checkblacklist() == True:
+    keyauthapp.check()
+    keyauthapp.ban()
+    print("YOUR HWID & IP GOT BANNED.")
+    print("IF YOU DO NOT EXIT THE PROGRAM THAN 3 TIMES, YOU WILL BE ENTERED TO THE SERVER LIST!")
+    webhookban = DiscordWebhook(url='Webhook')
+    embedban = DiscordEmbed(title='BAN USERS - BOT', description="USERS BAN TRY TO LOGIN\n" + "WARNING.", color='03b2f8')
+    webhookban.add_embed(embedban)
+    response = webhookban.execute()
+    EXIT = input("Press Enter To Exit.")
+    exit(0)
+        
+     
+keyauthapp.check()
+sleep(1.5) 
+os.system("cls")
+user = input('Username: ')
+password = input('Password: ')
+keyauthapp.login(user,password)
+keyauthapp.check()
+webhookinfo = DiscordWebhook(url='Webhook')
+embed = DiscordEmbed(title='KEY INFO - BOT', description="User  :   " + keyauthapp.user_data.username + "\nIp  :   " + keyauthapp.user_data.ip + "\n Hwid  :   " + keyauthapp.user_data.hwid + "\nOnline Users : " + keyauthapp.app_data.numUsers + "\nUSERS HAS LOGIN.", color='03b2f8')
+webhookinfo.add_embed(embed)
+response = webhookinfo.execute()
+"""
+Your code python :D
+"""
+input('Press Enter to exit.')

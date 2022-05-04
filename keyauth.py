@@ -177,7 +177,7 @@ class api:
 
         if json["success"]:
             self.__load_user_data(json["info"])
-            print("successfully logged in")
+            print("You have successfully logged in")
         else:
             print(json["message"])
             sys.exit()
